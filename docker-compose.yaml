@@ -1,5 +1,6 @@
 version: '3'
-
+#docker compose substitutes the docker run 
+#in the example docker run -v .:/usr/src/app -p 3000:3000 --name container_name image_name 
 services:
   api: 
     build: .
@@ -7,6 +8,8 @@ services:
       - 3000:3000
     volumes:
       - .:/usr/src/app
+    
+    
 
   db: 
     image: mysql
@@ -15,3 +18,4 @@ services:
     container_name: mysql_1.0
     environment:
       - MYSQL_ROOT_PASSWORD=1234
+    
